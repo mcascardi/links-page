@@ -2,3 +2,6 @@
 
 ### Description
 I have created a basic framework in PHP that reads from json files and creates a page that displays a list of links.  
+
+### Setup Instructions
+Clone this repository into your desired web root.  Once installed, create the `.json` folder inside the project directory and add the `db.json` and `links.json` files.  This application assumes these two files exist, and uses them to produce the output page, which is an HTML document with page header, page footer, and a list of links.
