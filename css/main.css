@@ -1,0 +1,24 @@
+/** Main Links Page CSS  **/
+
+body {
+    text-align: center;
+    max-width: unset;
+}
+
+header, footer, main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main {
+    min-height: 300px;
+    margin-top: 2rem;
+}
+
+footer {
+    text-align: left;
+}
+
+ul li {
+    list-style-type: none;
+}
