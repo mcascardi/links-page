@@ -20,7 +20,6 @@ class Links_Database {
 
     public function __construct($db) {
         $this->load_file($db);
-
         $this->load_data();
     }
 
@@ -39,18 +38,21 @@ class Links_Database {
         return $db_file_path;
     }
 
-    function link_tags() {
+    function link_tags($link_tags = []) {
         foreach ($this->links as $link) {
-            $links_tags[] =  sprintf(
+            $link_tags[] = sprintf(
                 '<li><a href="%s">%s</a></li>',
                 $link->href,
                 $link->text
             );
         }
 
-        return sprintf('<ul>%s</ul>', implode('', $links_tags) );
+        return (
+            (is_array($link_tags)) ?
+            sprintf('<ul>%s</ul>', implode('', $link_tags) ) :
+            $link_tags
+        );
     }
-
 
     function load_data() {
         if (empty($this->db->files)) {
@@ -58,8 +60,6 @@ class Links_Database {
         }
 
         foreach ($this->db->files as $db_file) {
-            // Should be loading...
-            echo('<!-- '. $db_file . ' loading -->');
             $this->load_file($db_file);
         }
     }
